@@ -81,5 +81,15 @@
     foreach($arr3 as $value) {
         echo $value.'<br>';
     }
+	$x = 0;
+	$y = 0;
+	require_once('form.php');
+	
+	$new_string = '  stroka s probelami      ';
+	echo '<br>';
+	echo trim('string without probels = ' . $new_string);
+	echo '<br>';
+	$m_1 = '45.4566';
+	echo sprintf('%.2f', $m_1);
 ?>
 </html>
