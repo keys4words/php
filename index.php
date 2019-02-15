@@ -91,5 +91,7 @@
 	echo '<br>';
 	$m_1 = '45.4566';
 	echo sprintf('%.2f', $m_1);
+    echo '<br>';
+    print("Today ".date("d-m-Y",time()));
 ?>
 </html>
