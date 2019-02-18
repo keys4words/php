@@ -1,85 +1,85 @@
 <?php
-	function TypeList()
+	function ShowArray1()
 	{
-		?>
-		В зависимости от контекста РНР может присвоить следующие типы данных:
-		<br>
-		<ul>
-			<li>boolean</li>
-			<li>integer</li>
-			<li>float</li>
-			<li>string</li>
-			<li>null</li>
-			<li>array</li>
-			<li>object</li>
-			<li>resource</li>
-		</ul>
-		<?php
+		$a = array("Ivanov", "Petrov", "Sidorov");
+		print $a[1];
 	}
 
-	function ShowFound($found)
+	function ShowArray2()
 	{
-		if ($found) {
-			print("Found");
-		}
-		else
-		{
-			print("Not found");
-		}
+		$a = 
+		[
+			"one" => "first",
+			"two" => "second",
+			"three" => "third"
+		];
+		print($a["two"]);
 	}
 
-	function ShowInt()
+	function ShowArray3()
 	{
-		$int_10 = 34;
-		$int_8 = 034;
-		$int_2 = 0b1100;
-		$int_16 = 0x1C;
-
-	/*	print '<br>$int_10 = '.$int_10;
-		print '<br>$int_8 = '.$int_8;
-		print '<br>$int_2 = '.$int_2;
-		print '<br>$int_16 = '.$int_16;
-	*/
-	
-	printf('<br>$int_10 = %d', $int_10); 
-	printf('<br>$int_8 = %o', $int_8); 
-	printf('<br>$int_2 = %b', $int_2); 
-	printf('<br>$int_16 = %X', $int_16); 
-	
-	}
-
-	function ShowFloat()
-	{
-		$a1 = 1.543;
-		$a2 = 2.434e2;
-		/*print('<br>$a1 = '.$a1);
-		print('<br>$a2 = '.$a2);
-		*/
-				
-	printf('<br>$a1 = %.2f', $a1); 
-	printf('<br>$a2 = %.2e', $a2); 
+		$cars = array
+		(
+			array("Mercedes", 2017, "black"),
+			array("BMW", 2010, "silver"),
+			array("Porsche", 2015, "blue")
+		);
+print <<<END
+<table border="1" cellpadding="4" cellspacing="0" background-color: rgb(187, 224, 227);
+style=" background-color: rgb(187, 224, 227);">
+<tbody>
+<tr>
+<td>{$cars[0][0]}</td>
+<td>{$cars[0][1]}</td>
+<td>{$cars[0][2]}</td>
+</tr>
+<tr>
+<td>{$cars[1][0]}</td>
+<td>{$cars[1][1]}</td>
+<td>{$cars[1][2]}</td>
+</tr>
+<tr>
+<td>{$cars[2][0]}</td>
+<td>{$cars[2][1]}</td>
+<td>{$cars[2][2]}</td>
+</tr>
+</tbody>
+</table>
+END;
 	
 	}
 
-	function ShowStr()
+	function ShowArray4()
 	{
-		$a = 1;
-		print('<br>$a = 1');
-		print "<br>$a = \$a";
-	}
+		$a = array
+		(
+			"Ivan" => array("First_name"=>"Ivanov", "Age"=>"34", "Position"=>"engineer"),
+			"Peter" => array("First_name"=>"Petrov", "Age"=>"44", "Position"=>"webmaster"),
+			"Sidor" => array("First_name"=>"Sidorov", "Age"=>"56", "Position"=>"programmer")
+		);
+print <<<END
+<table border="1" cellpadding="4" cellspacing="0" background-color: rgb(187, 224, 227);
+style=" background-color: rgb(187, 224, 227);">
+<tbody>
+<tr>
+<td>{$a["Ivan"]["First_name"]}</td>
+<td>{$a["Ivan"]["Age"]}</td>
+<td>{$a["Ivan"]["Position"]}</td>
+</tr>
+<tr>
+<td>{$a["Peter"]["First_name"]}</td>
+<td>{$a["Peter"]["Age"]}</td>
+<td>{$a["Peter"]["Position"]}</td>
+</tr>
+<tr>
+<td>{$a["Sidor"]["First_name"]}</td>
+<td>{$a["Sidor"]["Age"]}</td>
+<td>{$a["Sidor"]["Position"]}</td>
+</tr>
 
-	function ShowVar()
-	{
-		$a = null;
-		if (is_null($a)) {
-			# code...
-			print("No value");
-		}
-		else
-		{
-			print("Value exists");
-		}
+</tbody>
+</table>
+END;
 	}
-
 	
 ?>

@@ -2,22 +2,18 @@
 require_once "header.php";
 ?>
 
-<h1>Типы данных</h1>
-<?php TypeList(); ?>
+<h1>Массивы</h1>
 
-<h2>Логический тип</h2>
-<?php ShowFound(FALSE); ?>
+<h2>Одномерный нумерованный массив</h2>
+<?php ShowArray1(); ?>
 
-<h2>Целый тип</h2>
-<?php ShowInt(); ?>
+<h2>Одномерный ассоциативный массив</h2>
+<?php ShowArray2(); ?>
 
-<h2>Числа с плавающей точкой</h2>
-<?php ShowFloat(); ?>
+<h2>Двумерный нумерованный массив</h2>
+<?php ShowArray3(); ?>
 
-<h2>Строки</h2>
-<?php ShowStr(); ?>
-
-<h2>Пустой тип</h2>
-<?php ShowVar(); ?>
+<!-- h2>Двумерный ассоциативный массив</h2-->
+<?php ShowArray4(); ?>
 
 <?php require_once "footer.php"; ?>
