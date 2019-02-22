@@ -98,6 +98,15 @@ function ShowStyle()
 	}
 }
 
+function ShowStyleName()
+{
+	global $a;
+	if (isset($_GET["index"])) {
+		$i = $_GET["index"];
+		print($a[$i]);
+	}
+}
+
 function NextIndex($index)
 {
 	if ($index < 7) {
@@ -114,11 +123,11 @@ function NextStyle()
 {
 	if (isset($_GET["index"])) {
 		$index = NextIndex($_GET["index"]);
-		print '<a href="/?index='.$index.'">Next style</a>';
+		print '<a href="/sher/3-3/?index='.$index.'">Next style</a>';
 	}
 	else
 	{
-		print '<a href="/?index=1">Next style</a>';
+		print '<a href="/sher/3-3/?index=1">Next style</a>';
 	}
 }
 
