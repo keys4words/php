@@ -1,13 +1,8 @@
-<!DOCTYPE html>
-<?php
-require_once 'main.php';
-require_once 'start_mysql.php';
-?>
-<html lang="en">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<?php require_once "main.php"; require_once "start_mysql.php"; ?>
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
     <title><?php print $title; ?></title>
 </head>
