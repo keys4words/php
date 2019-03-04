@@ -109,7 +109,7 @@ function AddDB()
 {
     global $db;
     $SQL = "SELECT * FROM Товары";
-    if(!result = mysqli_query($db, $SQL))
+    if(!$result = mysqli_query($db, $SQL))
     {
         printf("Error in query: %s\n", mysqli_error($db));
     }
@@ -133,7 +133,7 @@ function EditDB()
     if($result = mysqli_query($db, "SELECT * FROM Товары"))
     {
         print "<table border=1 cellpadding=5>";
-        while($row = mysqli_fetch_asscoc($result))
+        while($row = mysqli_fetch_assoc($result))
         {
             print "<tr>";
             printf("<td>%s</td><td>%s</td>", $row['Товар'], $row['Цена']);

@@ -30,8 +30,8 @@ require_once 'header.php';
             <?php
                 print "<input name='id' type='hidden' value=".$row['Код товара'].">";
                 print "<table>";
-                print "<tr><td>Товар</td><input name='item' vlaue='".$row['Товар']."' maxlength=60 size=30></td></tr>";
-                print "<tr><td>Цена</td><input name='price' vlaue='".$row['Цена']."' maxlength=7 size=7></td></tr>";
+                print "<tr><td>Товар</td><td><input name='item' value='".$row['Товар']."' maxlength=60 size=30></td></tr>";
+                print "<tr><td>Цена</td><td><input name='price' value='".$row['Цена']."' maxlength=7 size=7></td></tr>";
                 mysqli_free_result($result);
             ?>
             <tr><td colspan2><input type="submit" value="Change"></td></tr>

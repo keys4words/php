@@ -14,4 +14,4 @@
     }
 
     EndDB();
-    header("Location: edit_table.php");
+    header("Location: edit_table.php");	
