@@ -15,4 +15,4 @@
 
     EndDB();
     //header("Location: ".$_SERVER['HTTP_REFERER']);	
-    echo "<script>window.location.href='".$_SERVER['HTTP_REFERER']."'</script>";
+    echo "<script>window.location.href='http://php.keys4words.ru/edit_table.php'</script>";
