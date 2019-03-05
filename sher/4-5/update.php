@@ -14,4 +14,5 @@
     }
 
     EndDB();
-    header("Location: edit_table.php");	
+    //header("Location: ".$_SERVER['HTTP_REFERER']);	
+    echo "<script>window.location.href='".$_SERVER['HTTP_REFERER']."'</script>";
