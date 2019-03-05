@@ -54,9 +54,9 @@ function PutDB()
     global $db;
     $SQL = "INSERT INTO Товары
         (`Товар`, `Цена`)
-        VALUES('Телевизор', '20000'),
-        ('Холодильник', '45000'),
-        ('Диктофон', '5000')
+        VALUES('Perfect Balancing Toner', '7350'),
+        ('Perfect C Treatment', '10040'),
+        ('Healthy Glow', '6210')
     ";
     if (mysqli_query($db, $SQL) === TRUE)
 	{
@@ -69,8 +69,8 @@ function PutDB()
 	
 	$SQL = "INSERT INTO Группы
 					(`Группа`, `Менеджер`) 
-			VALUES 	('Электроника', 'Иванов'), 
-					('Бытовая техника', 'Петров')
+			VALUES 	('BB cream', 'Иванов'), 
+					('Cleansers', 'Петров')
 		";
 
 	if (mysqli_query($db, $SQL) === TRUE)

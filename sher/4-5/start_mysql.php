@@ -5,7 +5,7 @@ $db;
 function StartDB()
 {
     global $db;
-    $db = mysqli_connect('localhost', 'max', '123', 'newTest');
+    $db = mysqli_connect('localhost', 'keys4wcm_test', '123456', 'keys4wcm_test');
 
     if(mysqli_connect_errno())
     {
