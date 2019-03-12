@@ -17,6 +17,6 @@ while(count($lines) > $col_max)
     {
         array_shift($lines);
     }    
-$lines[] = $date."|".$agent."|".$home."|\r\n";
+$lines = $date."|".$agent."|".$home."|\r\n";
 file_put_contents($file, $lines);
 ?>
