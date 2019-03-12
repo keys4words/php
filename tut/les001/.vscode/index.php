@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-<?php
+<!-- <?php
     echo 'maximus wins';
     echo '<br>';
     $var1 = 100;
@@ -42,8 +42,8 @@
     echo "<br>rand() = ".rand();
     echo "<br>rand(1, 10) = ".rand(1, 10);
     
-?>
-<br><br>
+?> -->
+<!-- <br><br>
 Float <?php echo $float = 3.14; ?><br>
 3.14 + 7 = <?php echo $float + 7; ?><br>
 4/3 = <?php echo 4/3; ?><br>
@@ -57,6 +57,19 @@ Floor: <?php echo floor($float); ?><br>
 <?php echo "Is {$float} float? ".is_float($float); ?><br>
 <?php echo "Is {$integer} numeric? ".is_numeric($integer); ?><br>
 <?php echo "Is {$float} numeric? ".is_numeric($float); ?><br>
+<br><br> -->
+<?php $numbers = array(4, 2, array('one', 'five')); ?>
+<?php echo $numbers[1]; ?><br>
+show array<?php print_r($numbers); ?><br>
+show element of array[2, 0] = <?php echo($numbers[2][0]); ?><br>
+<?php $numbers[] = 434; ?>
+<pre>
+adding new el to non-existing position = <?php print_r($numbers); ?><br>
+</pre>
+<?php $numbersNew = [4, 5, 66, '664s']; ?>
+<pre>
+adding new array <?php print_r($numbersNew); ?><br>
+</pre>
 
 
 </body>
