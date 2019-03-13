@@ -58,7 +58,7 @@ Floor: <?php echo floor($float); ?><br>
 <?php echo "Is {$integer} numeric? ".is_numeric($integer); ?><br>
 <?php echo "Is {$float} numeric? ".is_numeric($float); ?><br>
 <br><br> -->
-<?php $numbers = array(4, 2, array('one', 'five')); ?>
+<!-- <?php $numbers = array(4, 2, array('one', 'five')); ?>
 <?php echo $numbers[1]; ?><br>
 show array<?php print_r($numbers); ?><br>
 show element of array[2, 0] = <?php echo($numbers[2][0]); ?><br>
@@ -71,6 +71,19 @@ adding new el to non-existing position = <?php print_r($numbers); ?><br>
 adding new array <?php print_r($numbersNew); ?><br>
 </pre>
 
+<?php $assoc = array('key 1' => "string A", 'key 2' => "string B"); ?>
+<pre>
+association array - <?php echo $assoc["key 2"]; ?><br>
+</pre> -->
+<pre>
+<?php $arr1 = [4, 5, 56, 1, 5645, 43]; ?>
+initial array => <?php print_r($arr1); ?><br>
+length of array = <?php echo count($arr1); ?><br>
+maxiumum in array = <?php echo max($arr1); ?><br>
+minimum in array = <?php echo min($arr1); ?><br>
+sorting - <?php sort($arr1); print_r($arr1); ?><br>
+reverse sorting - <?php rsort($arr1); print_r($arr1); ?><br>
+</pre>
 
 </body>
 </html>
