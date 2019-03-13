@@ -1,7 +1,22 @@
 <?php
 session_start();
-$title = 'Lesson 5-3';
+setting_cookies();
+$title = 'Lesson 5-2';
 require_once 'header.php';
+?>
+
+<?php
+    function setting_cookies()
+    {
+        if(isset($_COOKIE["name"]))
+            {
+                setcookie("name");
+            }
+            else
+            {
+                setcookie("name", "3lab");
+            }
+    }
 ?>
 
 <div class="wrapper">
@@ -14,12 +29,12 @@ require_once 'header.php';
             if(isset($_COOKIE["name"]))
             {
                 print 'Hey, '.htmlspecialchars($_COOKIE["name"]).'!<br>';
-                setcookie("name");
+                //setcookie("name");
                 print "Cookies removed";
             }
             else
             {
-                setcookie("name", "3lab");
+                //setcookie("name", "3lab");
                 print "Cookies saved";
             }
         ?>
