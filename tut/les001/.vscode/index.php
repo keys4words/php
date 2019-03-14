@@ -75,7 +75,7 @@ adding new array <?php print_r($numbersNew); ?><br>
 <pre>
 association array - <?php echo $assoc["key 2"]; ?><br>
 </pre> -->
-<pre>
+<!-- <pre>
 <?php $arr1 = [4, 5, 56, 1, 5645, 43]; ?>
 initial array => <?php print_r($arr1); ?><br>
 length of array = <?php echo count($arr1); ?><br>
@@ -84,6 +84,28 @@ minimum in array = <?php echo min($arr1); ?><br>
 sorting - <?php sort($arr1); print_r($arr1); ?><br>
 reverse sorting - <?php rsort($arr1); print_r($arr1); ?><br>
 </pre>
+implode array to string - <?php echo $res = implode('_', $arr1); ?><br>
+<pre>
+explode string to array - <?php print_r($new_arr = explode('_', $res)); ?><br>
+</pre>
+is 56 in array? <?php echo in_array(56, $new_arr); ?><br> -->
+<?php $b = false; ?>
+is false boolean type? - <?php echo is_bool($b); ?><br>
+<?php
+$var1 = null;
+$var2 = "";
+?>
+var1 null? <?php echo is_null($var1); ?><br>
+var2 null? <?php echo is_null($var2); ?><br>
+var3 null? <?php echo is_null($var3); ?><br>
+var1 is set? <?php echo isset($var1); ?><br>
+var2 is set? <?php echo isset($var2); ?><br>
+var3 is set? <?php echo isset($var3); ?><br>
+<br><br>
+<?php $var3 = "0"; ?>
+var1 empty? <?php echo empty($var1); ?><br>
+var2 empty? <?php echo empty($var2); ?><br>
+var3 empty? <?php echo empty($var3); ?><br>
 
 </body>
 </html>
