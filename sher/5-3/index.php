@@ -1,29 +1,22 @@
-<?php
-session_start();
-$title = 'Lesson 5-3';
-require_once 'header.php';
-startPage();
-?>
+<?php session_start(); $title = "Урок 6.5"; require_once "header.php"; StartPage(); ?>
 
-<h2>Connect to DB</h2>
-<?php ConnectDB(); ?>
+<h2>Подключение к БД</h2>
+<?php StartDB(); ?>
 
-<h2>Create table</h2>
-<a href="init.php">Make initial creation</a>
+<h2>Создание таблиц</h2>
+<a href="init.php">Начальное создание таблиц</a>
 
-<h2>Get data from table</h2>
-<?php GetDBData(); ?>
+<h2>Получение данных</h2>
+<?php GetDB(); ?>
 
-<h2>Edit data in table</h2>
-<?php EditDB(); ?>
+<h2>Правка данных</h2>
+<?php CheckLogin(); ?>
 
-<h2>Close DB</h2>
-<?php CloseDB(); ?>
+<h2>Закрытие БД</h2>
+<?php EndDB(); ?>
 
-<h2>Title H2</h2>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam praesentium et officiis quae sint omnis ex, in incidunt mollitia quasi. Debitis praesentium est temporibus, consequuntur iste quas iure eos veritatis!</p>
 
-<?php
-endPage();
-require_once 'footer.php';
-?>
+<h2>Задание</h2>
+<p>Добавьте условие, что логин не может быть короче 6-ти символов.</p>
+
+<?php EndPage(); require_once "footer.php";  ?>

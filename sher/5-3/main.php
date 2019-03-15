@@ -1,35 +1,40 @@
 <?php
 
+
 function InitDB()
 {
-    global $db;
+	global $db;
 
-    if(mysqli_query($db, "DROP TABLE IF EXISTS Users;") === TRUE)
-    {
-        print "Table Users removed<br>";
-    }
-    else
-    {
-        printf("Error: %s\n", mysqli_error($db));
-    }
-    $SQL = "CREATE TABLE Users
-        (
-            `id_brand` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-            `login` VARCHAR(60) NOT NULL,
-            `password` VARCHAR(60) NOT NULL,
-            `last_check` TIMESTAMP now()
-        )
-    ";
-    if (mysqli_query($db, $SQL) === TRUE)
+	// Создание таблицы Users
+	if (mysqli_query($db, "DROP TABLE IF EXISTS Users;") === TRUE)
+	{
+		print "Таблица Users удалена<br>";
+	}
+	else
+	{
+		printf("Ошибка: %s\n", mysqli_error($db));
+	}
+	
+	$SQL = "CREATE TABLE Users 
+	( 
+	`iduser` INT NOT NULL  AUTO_INCREMENT PRIMARY KEY, 
+	`login` VARCHAR(50) NOT NULL, 
+	`password` VARCHAR(255) NOT NULL,
+	`reg_time` TIMESTAMP NOT NULL
+	);";
+
+	if (mysqli_query($db, $SQL) === TRUE)
 	{
 		print "Таблица Users создана<br>";
 	}
 	else
 	{
 		printf("Ошибка: %s\n", mysqli_error($db));
-    }
-    
-    if (mysqli_query($db, "DROP TABLE IF EXISTS Товары;") === TRUE)
+	}
+
+
+	// Создание таблицы Товары 
+	if (mysqli_query($db, "DROP TABLE IF EXISTS Товары;") === TRUE)
 	{
 		//print "Таблица Товары удалена<br>";
 	}
@@ -37,49 +42,60 @@ function InitDB()
 	{
 		printf("Ошибка: %s\n", mysqli_error($db));
 	}
+	
+	
+	
+	$SQL = "CREATE TABLE Товары ( 
+	`Код товара` INT NOT NULL  AUTO_INCREMENT PRIMARY KEY, 
+	`Товар` VARCHAR(50) NOT NULL, 
+	`Цена` INT NOT NULL
+	);";
 
-    $SQL = "CREATE TABLE Товары ( 
-        `Код товара` INT NOT NULL  AUTO_INCREMENT PRIMARY KEY, 
-        `Товар` VARCHAR(50) NOT NULL, 
-        `Цена` INT NOT NULL
-        );";
+	if (mysqli_query($db, $SQL) === TRUE)
+	{
+		//print "Таблица Товары создана<br>";
+	}
+	else
+	{
+		printf("Ошибка: %s\n", mysqli_error($db));
+	}
+
+	// Создание таблицы Группы 
+	if (mysqli_query($db, "DROP TABLE IF EXISTS Группы;")  === TRUE)
+	{
+		//print "Таблица Группы удалена<br>";
+	}
+	else
+	{
+		printf("Ошибка: %s\n", mysqli_error($db));
+	}
 
 
-    if (mysqli_query($db, $SQL) === TRUE)
-    {
-        //print "Таблица Товары создана<br>";
-    }
-    else
-    {
-        printf("Ошибка: %s\n", mysqli_error($db));
-    }
-
-    $SQL = "CREATE TABLE Группы ( 
-        `Код группы` INT NOT NULL  AUTO_INCREMENT PRIMARY KEY, 
-        `Группа` VARCHAR(50) NOT NULL, 
-        `Менеджер` VARCHAR(50) NOT NULL);
-        ";
-        
-    if (mysqli_query($db, $SQL) === TRUE)
-    {
-        //print "Таблица Группы создана<br>";
-    }
-    else
-    {
-        printf("Ошибка: %s\n", mysqli_error($db));
-    }
-
+	
+	$SQL = "CREATE TABLE Группы ( 
+	`Код группы` INT NOT NULL  AUTO_INCREMENT PRIMARY KEY, 
+	`Группа` VARCHAR(50) NOT NULL, 
+	`Менеджер` VARCHAR(50) NOT NULL);";
+	
+	if (mysqli_query($db, $SQL) === TRUE)
+	{
+		//print "Таблица Группы создана<br>";
+	}
+	else
+	{
+		printf("Ошибка: %s\n", mysqli_error($db));
+	}
 }
 
 function PutDB()
 {
-    global $db;
+	global $db;
 
 	$SQL = "INSERT INTO Товары
 					(`Товар`, `Цена`) 
-			VALUES 	('Healthy Glow', '6210'), 
-					('Perfect Balancing Toner ', '7350'),
-					('М Eye Крем', '21000')
+			VALUES 	('Телевизор', '20000'), 
+					('Холодильник', '45000'),
+					('Диктофон', '5000')
 		";
 
 	if (mysqli_query($db, $SQL) === TRUE)
@@ -93,8 +109,8 @@ function PutDB()
 	
 	$SQL = "INSERT INTO Группы
 					(`Группа`, `Менеджер`) 
-			VALUES 	('3LAB', 'Artamonova'), 
-					('Dr.Jart', 'Kameneva')
+			VALUES 	('Электроника', 'Иванов'), 
+					('Бытовая техника', 'Петров')
 		";
 
 	if (mysqli_query($db, $SQL) === TRUE)
@@ -105,11 +121,12 @@ function PutDB()
 	{
 		printf("Ошибка: %s\n", mysqli_error($db));
 	}
+
 }
 
-function GetDBData()
+function GetDB()
 {
-    global $db;
+	global $db;
 	$SQL = "SELECT * FROM Товары";
 	
 	if ($result = mysqli_query($db, $SQL)) 
@@ -129,11 +146,13 @@ function GetDBData()
 	{
 		printf("Ошибка в запросе: %s\n", mysqli_error($db));
 	}
-}
+	 
+}	
 
+// Вывод формы для добавления товара
 function AddDB()
 {
-    global $db;
+	global $db;
 	// Получение списка товаров
 	$SQL = "SELECT * FROM Товары";
 	
@@ -156,9 +175,10 @@ function AddDB()
 }
 
 
+// Вывод таблицы с функциями редактирования
 function EditDB()
 {
-    global $db;
+	global $db;
 	if ($result = mysqli_query($db, "SELECT * FROM Товары")) 
 	{
 		print "<table border=1 cellpadding=5>";
@@ -172,78 +192,93 @@ function EditDB()
 		}	 
 		print	"</table><br>";
 	}
-}
-
+}	
+	
 function StartPage()
-{
-?>
-<div class="wrapper">
-    <div class="header">
-    </div>
-    <div class="content">
+{	
+?>	
+	<div id="wrapper">
+<div id="header">
+</div> 
+
+
+<div id="content">
 <?php
+	
 }
 
-fucntion EndPage()
-{
-?>
+function EndPage()
+{	
+?>	
 </div>
-<div class="footer"></div>
+<div id="footer">
 </div>
+
+</div>
+
 <?php
+	
 }
 
+// Проверка авторизации
 function CheckLogin()
 {
-    if(isset($_POST['userlogin']))
-    {
-        $_SESSION['login'] = $_POST['userlogin'];
-        $_SESSION['password'] = $_POST['userpass'];
-        print "<br>Login ".$_SESSION['login'];
-        print "<br>Pass ".$_SESSION['password'];
-
-        if(CheckPassword())
-        {
-            print "<a href='edit_table.php'>Editing data</a>";
-        }
-        else
-        {
-            print "<br>Access denied";
-            print "<a href='login.php'><br>Input your login and pass again</a>";
-        }
+	// Проверка логина
+	if(isset($_POST['userlogin']))
+	{
+		$_SESSION['login'] = $_POST['userlogin'];
+		$_SESSION['password'] = $_POST['userpass'];
+		print "<br>Логин ".$_SESSION['login'];
+		print "<br>Пароль ".$_SESSION['password'];
+		// Проверка пароля
+		if(CheckPassword())
+		{
+			print "<a href='edit_table.php'>Правка данных</a>";
+		}
+		else
+		{
+			print "<br>Доступ запрещен";
+			print "<a href='login.php'><br>Введите логин и пароль повторно</a>";
+		}
     }
-    else
-    {
-        print "<a href='login.php'>For editing data input your login and pass</a>";
-    }
+	else
+	{
+		print "<a href='login.php'>Для правки данных введите логин и пароль</a>";
+	}
 }
 
-function CheckPassword()
+function CheckPassword() 
 {
-    global $db;
-    $SQL = "SELECT * FROM `Users` WHERE `login` LIKE '".$_SESSION['login']."'";
-    if($result = mysqli_query($db, $SQL))
-    {
-        if(mysqli_num_rows($result) == 0)
-        {
-            print "<br>Not existing login";
-            return false;
-        }
-        $row = mysqli_fetch_assoc($result);
-        if(password_verify($_SESSION['password'], $row['password']))
-        {
-            print "Password verified!<br>";
-            return true;
-        }
-    }
-    else
-    {
-        printf("Error: %s\n", mysqli_error($db));
-    }
-    print "Wrong password!<br>";
-    return false;
+	global $db;
+    // Составляем строку запроса
+    $SQL = "SELECT * FROM `users` WHERE `login` LIKE '".$_SESSION['login']."'";
+
+	if ($result = mysqli_query($db, $SQL)) 
+	{
+		// Если нет пользователя с таким логином, то завершаем функцию
+		if(mysqli_num_rows($result)== 0) 
+		{
+			print "<br>Нет такого логина";
+			return FALSE;
+		}
+		// Если логин есть, то проверяем пароль
+		$row = mysqli_fetch_assoc($result); 
+		if (password_verify($_SESSION['password'], $row['password']))
+		{
+			print "Пароль совпадает<br>";
+			return TRUE;
+		}
+	}
+	else
+	{
+		printf("Ошибка: %s\n", mysqli_error($db));
+	}
+    print "Нет такого пароля<br>";
+    return FALSE;
 }
 
+
+// Функция регистрации пользователя
 function RegUser() 
 {
 	global $db;

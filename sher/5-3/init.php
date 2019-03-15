@@ -1,21 +1,13 @@
-<?php
-session_start();
-$title = "Creation table";
-require_once 'header.php';
-StartPage();
-?>
+<?php session_start(); $title = "Создание таблиц"; require_once "header.php"; StartPage(); ?>
 
-<h2>Connection to DB</h2>
-<?php ConnectDB(); ?>
+<h2>Подключение к БД</h2>
+<?php StartDB(); ?>
 
-<h2>Create table</h2>
+<h2>Создание таблиц</h2>
 <?php InitDB(); ?>
 
-<h2>Putting data to table</h2>
+<h2>Заполнение данными</h2>
 <?php PutDB(); ?>
-<a href="index.php">Go to Main</a>
+<a href="index.php">На главную</a>
 
-<?php
-EndPage();
-require_once 'footer.php';
-?>
+<?php EndPage(); require_once "footer.php";  ?>
