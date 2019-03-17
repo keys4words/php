@@ -89,7 +89,7 @@ implode array to string - <?php echo $res = implode('_', $arr1); ?><br>
 explode string to array - <?php print_r($new_arr = explode('_', $res)); ?><br>
 </pre>
 is 56 in array? <?php echo in_array(56, $new_arr); ?><br> -->
-<?php $b = false; ?>
+<!--?php $b = false; ?>
 is false boolean type? - <?php echo is_bool($b); ?><br>
 <?php
 $var1 = null;
@@ -105,7 +105,151 @@ var3 is set? <?php echo isset($var3); ?><br>
 <?php $var3 = "0"; ?>
 var1 empty? <?php echo empty($var1); ?><br>
 var2 empty? <?php echo empty($var2); ?><br>
-var3 empty? <?php echo empty($var3); ?><br>
+var3 empty? <?php echo empty($var3); ?><br> -->
+
+<!-- <?php
+$a = 4;
+$b = 3;
+$c = 1;
+$d = 20;
+if(($a > $b) && ($c < $d))
+{
+    echo "a is larger than b AND ";
+    echo "c is larger than d";
+}
+?>
+<br>
+<?php
+$e = 5;
+if(!isset($e))
+{
+    $e = 200;
+}
+echo $e;
+?> -->
+
+<?php
+$quantity = "";
+if(empty($quantity) && !is_numeric($quantity))
+{
+    echo "You must enter a quantity";
+}
+?>
+<br>
+<!-- <?php
+$a1 = 5;
+switch($a1)
+{
+    case 0:
+        echo "a equals 0<br>";
+        break;
+    case 2:
+        echo "a equals 2<br>";
+        break;
+    case 3:
+        echo "a equals 3<br>";
+        break;
+    default:
+        echo "a equals default<br>";
+        break;
+}
+?> -->
+<!-- <?php
+$year = 2019;
+switch (($year - 4) % 12)
+{
+    case 0: $zodiac = 'Rat'; break;
+    case 1: $zodiac = 'Ox'; break;
+    case 2: $zodiac = 'Tiger'; break;
+    case 3: $zodiac = 'Rabbit'; break;
+    case 4: $zodiac = 'Dragon'; break;
+    case 5: $zodiac = 'Snake'; break;
+    case 6: $zodiac = 'Horse'; break;
+    case 7: $zodiac = 'Goat'; break;
+    case 8: $zodiac = 'Monkey'; break;
+    case 9: $zodiac = 'Rooster'; break;
+    case 10: $zodiac = 'Dog'; break;
+    case 11: $zodiac = 'Pig'; break;
+    
+}
+echo "{$year} is the year of the {$zodiac}<br>";
+
+?> -->
+<!-- <?php
+    $count = 0;
+    while($count <= 10)
+    {
+        if($count == 5)
+        {
+            echo "FIVE, ";
+        }
+        else
+        {
+            echo $count.", ";
+        }
+        $count++;
+    }
+    echo "<br>";
+    echo "Count: {$count}";
+?> -->
+
+<!-- <?php
+    for($i = 20; $i > 0; $i--)
+    {
+        if($i % 2 == 0)
+        {
+            echo "{$i} is even.<br>";
+        }
+        else
+        {
+            echo "{$i} is odd.<br>";
+        }
+        
+    }
+?> -->
+<!-- <?php
+    $ages = array(543, 4, 54, 32, 6, 76);
+    foreach($ages as $age)
+    {
+        echo "Age: {$age}<br>";
+    }
+
+?> -->
+
+<?php
+$person = array(
+    "first_name" => "Kevin",
+    "last_name"  => "SMith",
+    "addres"     => "Moscow suburb",
+    "city"       => "CA",
+    "zip_code"   => "909099"
+);
+foreach($person as $k => $v)
+{
+    $attr_nice = ucwords(str_replace("_", " ", $k));
+    echo "{$attr_nice}: {$v}<br>";
+}
+?>
+
+<?php
+    $price = array("Brand new collection" => 2000,
+                    "Month in Lynda" => 25,
+                    "Learining PHP"  => null);
+    foreach($price as $k => $v)
+    {
+        echo "{$k}: ";
+        if(is_int($v))
+        {
+            echo "$".$v;
+        }
+        else
+        {
+            echo "priceless";
+        }
+        echo "<br>";
+    }
+
+?>
 
 </body>
 </html>
