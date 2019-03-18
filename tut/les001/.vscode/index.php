@@ -216,7 +216,7 @@ echo "{$year} is the year of the {$zodiac}<br>";
 
 ?> -->
 
-<?php
+<!-- <?php
 $person = array(
     "first_name" => "Kevin",
     "last_name"  => "SMith",
@@ -248,6 +248,68 @@ foreach($person as $k => $v)
         }
         echo "<br>";
     }
+
+?>
+
+<?php
+for($i = 0; $i <= 5; $i++)
+{
+	if($i % 2 == 0)
+	{
+		continue;
+	}
+	for($j = 0; $j <= 5; $j++)
+	{
+		if($j == 3)
+		{
+			continue(2);
+		}
+		echo $i . "-".$j . "<br>";
+	}
+	
+}
+?> -->
+
+<?php
+for($count = 0; $count <= 10; $count++)
+{
+    if($count == 5)
+    {
+        continue;
+    }
+    echo $count . ", ";
+}
+
+?>
+
+<?php
+    $ages = array(4, 8, 45, 90, 123);
+    echo "1: " . current($ages) . "<br>";
+
+    next($ages);
+    echo "2: ".current($ages)."<br>";
+
+    next($ages);
+    next($ages);
+    next($ages);
+    
+    prev($ages);
+    echo "+3 -1 :".current($ages)."<br>";
+    
+    reset($ages);
+    echo "reset: ".current($ages)."<br>";
+    
+    end($ages);
+	echo "end: ".current($ages)."<br>";
+
+	next($ages);
+    echo "+1 after end: ".current($ages)."<br>";
+    
+    while($age = current($ages))
+	{
+		echo $age.", ";
+		next($ages);
+	}
 
 ?>
 
