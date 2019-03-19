@@ -270,7 +270,7 @@ for($i = 0; $i <= 5; $i++)
 }
 ?> -->
 
-<?php
+<!-- <?php
 for($count = 0; $count <= 10; $count++)
 {
     if($count == 5)
@@ -310,6 +310,60 @@ for($count = 0; $count <= 10; $count++)
 		echo $age.", ";
 		next($ages);
 	}
+
+?> -->
+
+<!-- <?php
+    function show_word($word)
+    {
+        echo "you entered {$word}<br>";
+    }
+?>
+<?php show_word('hey!'); >?
+
+<?php
+function better_hello($greeting, $target, $punct)
+{
+    echo $greeting." ".$target.$punct."<br>";
+}
+$name = "John Doe";
+better_hello("Greeing", $name, null);
+
+?> -->
+
+// <?php
+//     function add($val1, $val2)
+//     {
+//         $sum = $val1 + $val2;
+//         return $sum;
+//     }
+//     $result1 = add(4, 54.3);
+//     $result2 = add(5, $result1);
+//     echo $result2;
+// ?>
+
+<?php
+
+function chinese_zodiac($year)
+{
+    switch (($year - 4) % 12)
+{
+    case 0: $zodiac = 'Rat'; break;
+    case 1: $zodiac = 'Ox'; break;
+    case 2: $zodiac = 'Tiger'; break;
+    case 3: $zodiac = 'Rabbit'; break;
+    case 4: $zodiac = 'Dragon'; break;
+    case 5: $zodiac = 'Snake'; break;
+    case 6: $zodiac = 'Horse'; break;
+    case 7: $zodiac = 'Goat'; break;
+    case 8: $zodiac = 'Monkey'; break;
+    case 9: $zodiac = 'Rooster'; break;
+    case 10: $zodiac = 'Dog'; break;
+    case 11: $zodiac = 'Pig'; break;
+}
+return $zodiac;
+}
+echo chinese_zodiac(2019);
 
 ?>
 
