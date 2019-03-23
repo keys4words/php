@@ -10,8 +10,9 @@
 <?php
     $link_name = "Second Page";
     $id = 5;
+    $company = 'Bezo & Inc';
 ?>
-    <a href='second_page.php?id=2'><?php  echo $link_name; ?></a>
+    <a href='second_page.php?id=<?php echo $id;  ?>&company=<?php echo rawurlencode($company); ?>'><?php  echo $link_name; ?></a>
 
     
 </body>
