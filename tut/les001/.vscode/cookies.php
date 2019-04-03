@@ -2,6 +2,7 @@
         $name = "test";
         $value = 464;
         $expire = time() + (60*60*24*7);
+        //setcookie($name, $value, $expire);
         setcookie($name, $value, $expire);
 ?>
 <!DOCTYPE html>
