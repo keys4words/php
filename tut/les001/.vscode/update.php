@@ -5,18 +5,16 @@
     $dbname = "keys4wcm_bp";
     $connection = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
 
-    if(mysqli_connect_errno()){
-        die("Database connection failed: ".
-            mysqli_connect_error().
-            " (".
-            mysqli_connect_errno().
-            ")"
+    if(mysqli_connect_errno()) {
+        die("Database connection failed: " . 
+             mysqli_connect_error() . 
+             " (" . mysqli_connect_errno() . ")"
         );
-    }
+      }
 ?>
 
 <?php
-    $id = 5;
+    $id = 1;
     $menu_name = "edit me";
     $position = 4;
     $visible = 1;
@@ -27,11 +25,9 @@
     $query .= "WHERE id = {$id}";
     
     $result = mysqli_query($connection, $query);
-    if($result){
-        echo "Success";
-    }else{
-        die("Database query failed - " . mysqli_error($connection));
-    }
+    if (!$result) {
+		die("Database query failed.");
+	}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -42,8 +38,8 @@
     <title>Databases</title>
 </head>
 <body>
-    <ul>
-    <?php
+<ul>
+		<?php
 			// 3. Use returned data (if any)
 			while($subject = mysqli_fetch_assoc($result)) {
 				// output data from each row
@@ -52,7 +48,12 @@
 	  <?php
 			}
 		?>
-    </ul>
+		</ul>
+		
+		<?php
+		  // 4. Release returned data
+		  mysqli_free_result($result);
+		?>
 </body>
 </html>
 <?php
