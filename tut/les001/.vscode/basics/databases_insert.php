@@ -16,11 +16,17 @@
 ?>
 
 <?php
-    $menu_name = "edit me";
-    $position = 4;
-    $visible = 1;
-    $query = "INSERT INTO subjects(menu_name, position, visible) 
-    VALUES('{$menu_name}', {$position}, {$visible})";
+    $menu_name = "Today's Widget Trivia";
+    $position = (int)4;
+    $visible = (int)1;
+
+    $menu_name = mysqli_real_escape_string($connection, $menu_name);
+
+    $query  = "INSERT INTO subjects (";
+	$query .= "  menu_name, position, visible";
+	$query .= ") VALUES (";
+	$query .= "  '{$menu_name}', {$position}, {$visible}";
+	$query .= ")";
     
     $result = mysqli_query($connection, $query);
     if($result){
